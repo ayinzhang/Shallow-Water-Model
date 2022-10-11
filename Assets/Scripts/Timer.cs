@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator Clock()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(4.5f);
         GetComponent<ShallowWater>().enabled = true;
         yield return new WaitForSeconds(3f);
         ShallowWater.watercondition = 2;
