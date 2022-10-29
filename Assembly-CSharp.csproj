@@ -55,13 +55,17 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ShallowWater.cs" />
     <Compile Include="Assets\Scripts\map_texture.cs" />
-    <Compile Include="Assets\Scripts\Camera.cs" />
+    <Compile Include="Assets\Scripts\CameraRotate.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\MotionBlur.cs" />
+    <Compile Include="Assets\Scripts\FogWithNoise.cs" />
+    <Compile Include="Assets\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\Scripts\EdgeDetectNormalsAndDepth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Shaders\EdgeDetectNormalAndDepth.shader" />
     <None Include="Assets\Shaders\WaterSurface.shader" />
+    <None Include="Assets\Shaders\FogWithNoise.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
