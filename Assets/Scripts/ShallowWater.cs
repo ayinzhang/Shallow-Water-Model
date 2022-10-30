@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShallowWater : MonoBehaviour
 {
     private const int nmax = 64;
-    Vector3[] verts = new Vector3[nmax * nmax];//上一帧的高度
+    Vector3[] verts = new Vector3[nmax * nmax];
     protected MeshFilter meshFilter;
     protected Mesh mesh;
     int NowFrame = 0;
@@ -13,12 +13,12 @@ public class ShallowWater : MonoBehaviour
 
     float[,] h, u, v, U1, U2, U3, F1, F2, F3, G1, G2, G3, f1, f2, f3, g1, g2, g3, u1pred, u2pred, u3pred, z;
     float dx, dy, dt, cfl = 0.8f;
-    int scheme = 1;//Lax Frieshs == 1,MacCormack == 2
-    static public int watercondition = 1;//1代表Dam Break，2代表下雨，3代表有坡度的DamBreak,4代表设置好的反射边界条件
-    int Boundary = 1;//1代表不反射，2代表反射
-    int[,] drop;//用于下雨的情况
+    int scheme = 1;
+    static public int watercondition = 1;
+    int Boundary = 1;
+    int[,] drop;
 	float grad = 1.0f;
-    // Start is called before the first frame update
+
     void Start()
     {
 
@@ -38,8 +38,6 @@ public class ShallowWater : MonoBehaviour
             dx = dy = 100.0f / (nmax - 3);
             u1pred = new float[nmax, nmax]; u2pred = new float[nmax, nmax]; u3pred = new float[nmax, nmax];
         }
-
-
         for (int i = 0; i <= nmax; i++)
         {
             for (int j = 0; j <= nmax; j++)
@@ -60,7 +58,7 @@ public class ShallowWater : MonoBehaviour
                 
                 if (i < nmax / 2) h[i, j] = 2.0f;
                 else h[i, j] = 1.0f;
-                if (watercondition == 2) h[i, j] = 2.0f;//仅下雨，而无Dam Break
+                if (watercondition == 2) h[i, j] = 2.0f;
 				if(watercondition == 4)
 				{
 					if (i < nmax / 2 && j < nmax / 2) h[i, j] = 2.0f;
@@ -116,15 +114,6 @@ public class ShallowWater : MonoBehaviour
                 tries[TriIdx] = VerIdx;
                 tries[TriIdx + 1] = VerIdx + nmax;
                 tries[TriIdx + 2] = VerIdx + nmax + 1;
-
-                /*
-                 1 ------  2/4
-                 |             |
-                 |             |
-               0/3 ------- 5
-                 
-                 */
-
                 tries[TriIdx + 3] = VerIdx;
                 tries[TriIdx + 4] = VerIdx + nmax + 1;
                 tries[TriIdx + 5] = VerIdx + 1;
@@ -218,7 +207,7 @@ public class ShallowWater : MonoBehaviour
                     U3[i, j] = U3[i, j] - dt / dx * (f3[i + 1, j] - f3[i, j]) - dt / dy * (g3[i, j + 1] - g3[i, j]) - dt * 10.0f * h[i, j] * (z[i, j + 1] - z[i, j]);
 
 
-                if (watercondition == 2)//下雨的情况
+                if (watercondition == 2)
                 {
                     if (Random.Range(0f, 1f) >= 0.999995f)
                     {
@@ -234,14 +223,13 @@ public class ShallowWater : MonoBehaviour
                         }
 
                     }
-
                     if (drop[i, j] > 0)
                     {
                         U1[i, j] = Mathf.Sin(drop[i, j] / 3.0f) * 0.5f + 1;
                         drop[i, j]--;
                     }
                 }
-				if(watercondition == 3)//保证源头一直有水流出
+				if(watercondition == 3)
 				{
 					if(i == 0)U1[i,j] = 2.0f;
 				}
@@ -317,7 +305,7 @@ public class ShallowWater : MonoBehaviour
                     U3[i, j] = 0.5f * (U3[i, j] + u3pred[i, j] - c * (F3[i, j] - F3[i - 1, j]) - c * (G3[i, j] - G3[i, j - 1]));
 
 
-                if (watercondition == 2)//下雨的情况
+                if (watercondition == 2)
                 {
                     if (Random.Range(0f, 1f) >= 0.999995f)
                     {
@@ -340,7 +328,7 @@ public class ShallowWater : MonoBehaviour
                         drop[i, j]--;
                     }
                 }
-				if(watercondition == 3)//保证源头一直有水流出
+				if(watercondition == 3)
 				{
 					if(i == 0)U1[i,j] = 2.0f;
 				}

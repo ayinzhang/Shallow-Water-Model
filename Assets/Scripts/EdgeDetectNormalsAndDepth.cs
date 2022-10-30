@@ -13,7 +13,7 @@ public class EdgeDetectNormalsAndDepth : PostEffectsBase {
 	}
 
 	[Range(0.0f, 1.0f)]
-	public float edgesOnly = 0.0f;
+	public float edgesOnly = 1.0f;
 
 	public Color edgeColor = Color.black;
 
@@ -24,9 +24,15 @@ public class EdgeDetectNormalsAndDepth : PostEffectsBase {
 	public float sensitivityDepth = 1.0f;
 
 	public float sensitivityNormals = 1.0f;
+
+	IEnumerator Appear()
+    {
+		for (float i = 1; i >= 0; i -= 0.01f) { edgesOnly = i; yield return new WaitForSecondsRealtime(0.035f); }
+	}
 	
 	void OnEnable() {
 		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
+		StartCoroutine("Appear");
 	}
 
 	[ImageEffectOpaque]
