@@ -53,13 +53,13 @@
     <UnityVersion>2020.3.21f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EdgeDetectNormalsAndDepth.cs" />
     <Compile Include="Assets\Scripts\ShallowWater.cs" />
+    <Compile Include="Assets\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\Scripts\map_texture.cs" />
     <Compile Include="Assets\Scripts\CameraRotate.cs" />
-    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\FogWithNoise.cs" />
-    <Compile Include="Assets\Scripts\PostEffectsBase.cs" />
-    <Compile Include="Assets\Scripts\EdgeDetectNormalsAndDepth.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\MotionBlur.shader" />

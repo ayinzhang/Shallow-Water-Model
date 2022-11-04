@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 8b7dd0809c7c6498789fa32a61eaa6cb, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7416536dbe0334cfd888dd1beb75a9fb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.60559183, g: 0.54946965, b: 0.6453904, a: 1}
+  m_IndirectSpecularColor: {r: 0.3823135, g: 0.46900892, b: 0.6139051, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeDetectShader: {fileID: 4800000, guid: 32ace62eb7d9c4aa4986c5f1cd84a77c, type: 3}
-  edgesOnly: 1
+  edgesOnly: 0.93000007
   edgeColor: {r: 0, g: 0, b: 0, a: 1}
   backgroundColor: {r: 1, g: 1, b: 1, a: 1}
   sampleDistance: 1
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f3da3c701a18145966c8b4af8c4126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mat: {fileID: 2100000, guid: 2a7f4e0e5a5641a49b6a856b1fe63e4c, type: 2}
+  Mat: {fileID: 2100000, guid: 3379fdee16da5ba42bd47f8844238c4b, type: 2}
 --- !u!23 &1820591313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b319951be8f6c419468d324a0209f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 2a7f4e0e5a5641a49b6a856b1fe63e4c, type: 2}
+  material: {fileID: 2100000, guid: 3379fdee16da5ba42bd47f8844238c4b, type: 2}
 --- !u!1 &2074918984
 GameObject:
   m_ObjectHideFlags: 0
