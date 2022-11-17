@@ -6,5 +6,5 @@
 
 **话说这不就是个观光模拟器吗**
 
-<video src="https://github.com/1242857339/Shallow-water-model/blob/master/rendering%20and%20simulation.mp4"></video>
+![image](https://github.com/1242857339/Shallow-water-model/blob/master/rendering%20and%20simulation.gif)
 
