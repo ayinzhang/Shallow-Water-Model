@@ -1,10 +1,10 @@
-# Shallow-water-model
+# 浅水波模型
 
-[中文版](README_zh.md)
+[English Version](README.md)
 
-**My first attempt to combine rendering and simulation**
+**结合渲染与模拟的初次尝试**
 
-~~*Isn't this just a sightseeing simulator*~~
+~~*话说这不就是个观光模拟器吗*~~
 
 <div align=center>
 <img src="https://github.com/1242857339/Shallow-water-model/blob/master/rendering%20and%20simulation.gif" width = "50%" height = "50%" />
